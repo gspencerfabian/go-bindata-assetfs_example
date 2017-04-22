@@ -1,2 +1,2 @@
 build:
-	@go build . && ./test
+	@go build . && ./go-bindata-assetfs_example
