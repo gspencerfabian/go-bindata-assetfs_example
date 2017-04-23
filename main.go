@@ -8,10 +8,9 @@ import (
 var err error
 
 func main() {
-	r := http.NewServeMux()
-	r.HandleFunc("/", indexHandle)
-	r.Handle("/static/", http.StripPrefix("/static/", http.FileServer(assetFS())))
-	http.ListenAndServe(":8080", r)
+	http.HandleFunc("/", indexHandle)
+	http.Handle("/static/", http.StripPrefix("/static/", http.FileServer(assetFS())))
+	http.ListenAndServe(":8080", nil)
 }
 
 func indexHandle(w http.ResponseWriter, r *http.Request) {
